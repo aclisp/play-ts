@@ -4,7 +4,9 @@
         "node": true
     },
     "extends": [
-        "standard"
+        "standard",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -15,6 +17,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/type-annotation-spacing": ["warn", {
+            "before": false,
+            "after": true
+        }],
+        "@typescript-eslint/no-unused-vars": ["off"]
     },
     "ignorePatterns": ["**/*.js", "!public/*.js"]
 }
