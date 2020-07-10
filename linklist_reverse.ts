@@ -1,27 +1,27 @@
-class ListNode {
-  value: any
-  next: ListNode
-  constructor (value: any, next: ListNode) {
+class ListNode<T> {
+  value: T
+  next: ListNode<T>
+  constructor (value: T, next: ListNode<T>) {
     this.value = value
     this.next = next
   }
 }
 
-function createList (array: Array<any>): ListNode {
-  let list: ListNode = null
+function createList<T> (array: Array<T>): ListNode<T> {
+  let list: ListNode<T> = null
   array.reverse().forEach(element => {
     list = new ListNode(element, list)
   })
   return list
 }
 
-function iterateList (list: ListNode, func: (element: any) => void) {
+function iterateList<T> (list: ListNode<T>, func: (element: T) => void) {
   for (let node = list; node != null; node = node.next) {
     func(node.value)
   }
 }
 
-function reverseList (list: ListNode): ListNode {
+function reverseList<T> (list: ListNode<T>): ListNode<T> {
   if (list == null) {
     return list
   }
