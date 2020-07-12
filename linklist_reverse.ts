@@ -7,7 +7,7 @@ class ListNode<T> {
   }
 }
 
-function createList<T> (array: Array<T>): ListNode<T> {
+function createList<T> (array: T[]): ListNode<T> {
   let list: ListNode<T> = null
   array.reverse().forEach(element => {
     list = new ListNode(element, list)

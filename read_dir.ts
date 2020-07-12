@@ -22,7 +22,7 @@ async function readFile (filePath: string): Promise<FileInfo> {
   }
 }
 
-async function getFileLengths (dir: string): Promise<Array<FileInfo>> {
+async function getFileLengths (dir: string): Promise<FileInfo[]> {
   const fileList = await fs.readdir(dir)
 
   const readFiles = fileList.map(async file => {
@@ -33,7 +33,7 @@ async function getFileLengths (dir: string): Promise<Array<FileInfo>> {
   return await Promise.all(readFiles)
 }
 
-async function getFileLengthsV2 (dir: string): Promise<Array<FileInfo>> {
+async function getFileLengthsV2 (dir: string): Promise<FileInfo[]> {
   const fileList = await fs.readdir(dir)
 
   const infos: FileInfo[] = []
@@ -45,9 +45,9 @@ async function getFileLengthsV2 (dir: string): Promise<Array<FileInfo>> {
   return infos
 }
 
-async function printLengths (dir: string) {
+async function printLengths (dir: string, getFileLengths: (dir: string) => Promise<FileInfo[]>) {
   try {
-    const results = await getFileLengthsV2(dir)
+    const results = await getFileLengths(dir)
     results.forEach(fileInfo => console.log(`${fileInfo.filePath}: ${fileInfo.fileSize}`))
     console.log('done!')
   } catch (err) {
@@ -55,4 +55,5 @@ async function printLengths (dir: string) {
   }
 }
 
-printLengths(targetDirectory)
+printLengths(targetDirectory, getFileLengths)
+printLengths(targetDirectory, getFileLengthsV2)

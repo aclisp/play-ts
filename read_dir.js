@@ -121,14 +121,14 @@ function getFileLengthsV2(dir) {
         });
     });
 }
-function printLengths(dir) {
+function printLengths(dir, getFileLengths) {
     return __awaiter(this, void 0, void 0, function () {
         var results, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, getFileLengthsV2(dir)];
+                    return [4 /*yield*/, getFileLengths(dir)];
                 case 1:
                     results = _a.sent();
                     results.forEach(function (fileInfo) { return console.log(fileInfo.filePath + ": " + fileInfo.fileSize); });
@@ -143,5 +143,6 @@ function printLengths(dir) {
         });
     });
 }
-printLengths(targetDirectory);
+printLengths(targetDirectory, getFileLengths);
+printLengths(targetDirectory, getFileLengthsV2);
 //# sourceMappingURL=read_dir.js.map
