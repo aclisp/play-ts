@@ -19,28 +19,31 @@ interface Bucket {
 class Histogram {
   buckets: Bucket[]
   constructor () {
+    function bucket (from: number, to: number): Bucket {
+      return { range: [from, to], count: 0, uids: new Set() }
+    }
     this.buckets = [
-      { range: [0, 10], count: 0, uids: new Set() },
-      { range: [10, 20], count: 0, uids: new Set() },
-      { range: [20, 30], count: 0, uids: new Set() },
-      { range: [30, 40], count: 0, uids: new Set() },
-      { range: [40, 50], count: 0, uids: new Set() },
-      { range: [50, 60], count: 0, uids: new Set() },
-      { range: [60, 70], count: 0, uids: new Set() },
-      { range: [70, 80], count: 0, uids: new Set() },
-      { range: [80, 90], count: 0, uids: new Set() },
-      { range: [90, 100], count: 0, uids: new Set() },
-      { range: [100, 200], count: 0, uids: new Set() },
-      { range: [200, 300], count: 0, uids: new Set() },
-      { range: [300, 400], count: 0, uids: new Set() },
-      { range: [400, 500], count: 0, uids: new Set() },
-      { range: [500, 600], count: 0, uids: new Set() },
-      { range: [600, 700], count: 0, uids: new Set() },
-      { range: [700, 800], count: 0, uids: new Set() },
-      { range: [800, 900], count: 0, uids: new Set() },
-      { range: [900, 1000], count: 0, uids: new Set() },
-      { range: [1000, 2000], count: 0, uids: new Set() },
-      { range: [2000, Number.MAX_SAFE_INTEGER], count: 0, uids: new Set() }
+      bucket(0, 10),
+      bucket(10, 20),
+      bucket(20, 30),
+      bucket(30, 40),
+      bucket(40, 50),
+      bucket(50, 60),
+      bucket(60, 70),
+      bucket(70, 80),
+      bucket(80, 90),
+      bucket(90, 100),
+      bucket(100, 200),
+      bucket(200, 300),
+      bucket(300, 400),
+      bucket(400, 500),
+      bucket(500, 600),
+      bucket(600, 700),
+      bucket(700, 800),
+      bucket(800, 900),
+      bucket(900, 1000),
+      bucket(1000, 2000),
+      bucket(2000, Number.MAX_SAFE_INTEGER)
     ]
   }
 
@@ -101,7 +104,6 @@ async function deleteBlackList (redis: Redis.Redis, histo: Histogram): Promise<v
   let deleted = 0
   for (const bucket of histo.buckets) {
     if (bucket.range[0] >= 100) {
-      console.log(`about delete blacklist in range ${bucket.range} with ${bucket.uids.size} keys`)
       for (const uid of bucket.uids) {
         if (process.env.DELETE_BLACKLIST === 'true') {
           await redis.del(`hash:black:${uid}`)
