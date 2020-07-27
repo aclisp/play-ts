@@ -94,8 +94,23 @@ async function processBlackList (redis: Redis.Redis): Promise<Histogram> {
   return histo
 }
 
-function deleteBlackList (redis: Redis.Redis, histo: Histogram) {
+async function deleteBlackList (redis: Redis.Redis, histo: Histogram): Promise<void> {
+  console.log('--- DIST ---')
   histo.print()
+
+  let deleted = 0
+  for (const bucket of histo.buckets) {
+    if (bucket.range[0] >= 100) {
+      console.log(`about delete blacklist in range ${bucket.range} with ${bucket.uids.size} keys`)
+      for (const uid of bucket.uids) {
+        if (process.env.DELETE_BLACKLIST === 'true') {
+          await redis.del(`hash:black:${uid}`)
+          deleted++
+        }
+      }
+    }
+  }
+  console.log(`deleted ${deleted} keys`)
 }
 
 dotenv.config();
@@ -105,7 +120,14 @@ dotenv.config();
     port: Number(process.env.REDIS_PORT),
     host: process.env.REDIS_HOST
   })
+  const master = new Redis({
+    port: Number(process.env.REDIS_MASTER_PORT),
+    host: process.env.REDIS_MASTER_HOST
+  })
+
   const histo = await processBlackList(redis)
-  deleteBlackList(redis, histo)
+  await deleteBlackList(master, histo)
+
+  await master.quit()
   await redis.quit()
 })()
