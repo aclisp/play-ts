@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 import * as fs from 'fs'
-import express = require('express')
+import express from 'express'
 
 const chatEmitter = new EventEmitter()
 const port = process.env.PORT || 1337

@@ -1,8 +1,13 @@
 {
     "compilerOptions": {
+        "target": "es6",
+        "esModuleInterop": true,
         "sourceMap": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true
-    }
+    },
+    "include": [
+        "node_modules/csv-parser/index.d.ts"
+    ]
 }
