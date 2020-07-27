@@ -27,7 +27,10 @@ class Histogram {
       { range: [500, 600], count: 0 },
       { range: [600, 700], count: 0 },
       { range: [700, 800], count: 0 },
-      { range: [800, 900], count: 0 }
+      { range: [800, 900], count: 0 },
+      { range: [900, 1000], count: 0 },
+      { range: [1000, 2000], count: 0 },
+      { range: [2000, Number.MAX_SAFE_INTEGER], count: 0 }
     ]
   }
 
