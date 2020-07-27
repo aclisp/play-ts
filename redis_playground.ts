@@ -19,10 +19,15 @@ class Histogram {
   buckets: Bucket[]
   constructor () {
     this.buckets = [
-      { range: [0, 1], count: 0 },
-      { range: [1, 2], count: 0 },
-      { range: [2, 3], count: 0 },
-      { range: [3, 4], count: 0 }
+      { range: [0, 100], count: 0 },
+      { range: [100, 200], count: 0 },
+      { range: [200, 300], count: 0 },
+      { range: [300, 400], count: 0 },
+      { range: [400, 500], count: 0 },
+      { range: [500, 600], count: 0 },
+      { range: [600, 700], count: 0 },
+      { range: [700, 800], count: 0 },
+      { range: [800, 900], count: 0 }
     ]
   }
 
@@ -63,7 +68,7 @@ async function processBlackList (redis: Redis.Redis) {
   allBlackList.sort((a, b) => {
     return b.blackListCount - a.blackListCount
   })
-  for (const bl of allBlackList.slice(0, 2)) {
+  for (const bl of allBlackList.slice(0, 20)) {
     console.log(bl)
   }
   const histo = new Histogram()
