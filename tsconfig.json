@@ -2,12 +2,12 @@
     "compilerOptions": {
         "target": "es6",
         "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
         "sourceMap": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noImplicitThis": true
-    },
-    "include": [
-        "node_modules/csv-parser/index.d.ts"
-    ]
+        "noImplicitThis": true,
+        "outDir": "dist",
+    }
 }
