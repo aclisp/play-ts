@@ -1,6 +1,4 @@
 node_modules/
 public/*.png
-*.js
-*.js.map
 dist/
 .env

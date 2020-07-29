@@ -1315,6 +1315,16 @@ isexe@^2.0.0:
   resolved "https://registry.npm.taobao.org/isexe/download/isexe-2.0.0.tgz?cache=0&sync_timestamp=1589682812472&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fisexe%2Fdownload%2Fisexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+js-md2@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.npm.taobao.org/js-md2/download/js-md2-0.2.2.tgz#3370ac1acb45dc31f0014e1ca69c3739aff7d2e4"
+  integrity sha1-M3CsGstF3DHwAU4cppw3Oa/30uQ=
+
+js-md4@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.npm.taobao.org/js-md4/download/js-md4-0.3.2.tgz#cd3b3dc045b0c404556c81ddb5756c23e59d7cf5"
+  integrity sha1-zTs9wEWwxARVbIHdtXVsI+WdfPU=
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
