@@ -13,9 +13,10 @@
             ],
             "program": "${workspaceFolder}/${relativeFile}",
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceFolder}/dist/**/*.js"
             ],
             "smartStep": true,
+            "preLaunchTask": "npm: tsc"
         }
     ]
 }

@@ -1,6 +1,6 @@
+import csv from 'csv-parser'
 import * as fs from 'fs'
 import { Transform } from 'stream'
-import csv from 'csv-parser'
 
 const YEAR_MS = 365 * 24 * 60 * 60 * 1000
 

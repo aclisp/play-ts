@@ -1,5 +1,5 @@
-import Redis from 'ioredis'
 import dotenv from 'dotenv'
+import Redis from 'ioredis'
 
 class BlackList {
   uid: number

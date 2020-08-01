@@ -1,12 +1,11 @@
-import { MongoClient, Db } from 'mongodb'
+// eslint-disable-next-line semi
+import { Db, MongoClient } from 'mongodb';
 
 // Connection URL
 const url = 'mongodb://127.0.0.1:27017'
 
 // Database Name
-const dbName = 'myproject'
-
-;
+const dbName = 'myproject';
 
 (async function () {
   const client = new MongoClient(url, { useUnifiedTopology: true })
