@@ -42,3 +42,5 @@ console.log('reverse:')
 iterateList(reverseList(createList([1, 2, 3, 4, 5])), console.log)
 console.log('null:')
 iterateList(reverseList(new ListNode('a', null)), console.log)
+
+// https://leetcode-cn.com/problems/reverse-linked-list/comments/
