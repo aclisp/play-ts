@@ -1,28 +1,30 @@
+type TListNode<T> = ListNode<T> | null
+
 class ListNode<T> {
   value: T
-  next: ListNode<T>
-  constructor (value: T, next: ListNode<T>) {
+  next: TListNode<T>
+  constructor (value: T, next: TListNode<T>) {
     this.value = value
     this.next = next
   }
 }
 
-function createList<T> (array: T[]): ListNode<T> {
-  let list: ListNode<T> = null
+function createList<T> (array: T[]): TListNode<T> {
+  let list: TListNode<T> = null
   array.reverse().forEach(element => {
     list = new ListNode(element, list)
   })
   return list
 }
 
-function iterateList<T> (list: ListNode<T>, func: (element: T) => void) {
+function iterateList<T> (list: TListNode<T>, func: (element: T) => void) {
   for (let node = list; node != null; node = node.next) {
     func(node.value)
   }
 }
 
-function reverseList<T> (list: ListNode<T>): ListNode<T> {
-  let result: ListNode<T> = null
+function reverseList<T> (list: TListNode<T>): TListNode<T> {
+  let result: TListNode<T> = null
   while (list != null) {
     const next = list.next
     list.next = result
@@ -32,8 +34,8 @@ function reverseList<T> (list: ListNode<T>): ListNode<T> {
   return result
 }
 
-function reverseList2<T> (list: ListNode<T>): ListNode<T> {
-  let result: ListNode<T> = null
+function reverseList2<T> (list: TListNode<T>): TListNode<T> {
+  let result: TListNode<T> = null
   while (list != null) {
     const temp = list
     list = list.next

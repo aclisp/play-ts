@@ -42,7 +42,7 @@ async function insertSampleDocuments (db: Db): Promise<number> {
 
 async function clean (db: Db): Promise<number> {
   const result = await db.collection('geo_records').deleteMany({})
-  return result.deletedCount
+  return result.deletedCount ?? 0
 }
 
 async function query (db: Db): Promise<void> {
