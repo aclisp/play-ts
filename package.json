@@ -27,7 +27,7 @@
   "dependencies": {
     "csv-parser": "^2.3.3",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ioredis": "^4.17.3",
     "js-md2": "^0.2.2",
     "js-md4": "^0.3.2",
